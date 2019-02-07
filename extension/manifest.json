@@ -7,7 +7,7 @@
   "content_scripts": [
     {
       "matches": ["*://cdn.lever.co/*"],
-      "js": ["jquery-3.3.1.min.js", "content.js"],
+      "js": ["jquery-3.3.1.min.js", "resume.js"],
       "css": ["css/altered.css"],
       "run_at": "document_idle"
     }
