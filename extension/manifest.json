@@ -2,13 +2,14 @@
   "name": "Resume Masking",
   "version": "1.0",
   "description": "Resume masking",
-  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "permissions": ["activeTab"],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "content_scripts": [
     {
       "matches": ["*://cdn.lever.co/*"],
-      "all_frames": true,
-      "js": ["content.js"],
-      "css": ["css/altered.css"]
+      "js": ["jquery-3.3.1.min.js", "content.js"],
+      "css": ["css/altered.css"],
+      "run_at": "document_end"
     }
   ],
   "manifest_version": 2
