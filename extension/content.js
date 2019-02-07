@@ -17,8 +17,18 @@ setTimeout(function () {
                      console.log(tmp);
                      var resumeurl = 'https://cdn.lever.co/hire/docviewer/viewer-8256b37e2035e5a1d9a93da401bcb3bd/viewer.html?assetUrl=https://hire.lever.co/docviewer-assets/';
 	             var newurl = tmp.replace(/.*(profiles.*$)/, resumeurl + '$1' + '/');
-	             location.href = newurl;
+	            // location.href = newurl;
+			var win = window.open(newurl, '_blank');
+if (win) {
+    //Browser has allowed it to be opened
+    win.focus();
+} else {
+    //Browser has blocked it
+    alert('Please allow popups for this website');
+}
+
                  }, "html");
+		 return false;
 	
 	    });
 
@@ -37,4 +47,4 @@ setTimeout(function () {
 	    $(this).text("Some Employer");
 	});
 
-}, 1000);
+}, 3000);
