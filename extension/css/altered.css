@@ -1,0 +1,12 @@
+body {
+    visibility: hidden;
+}
+div.canvasWrapper {
+    display: none;
+}
+.textLayer {
+    opacity: 1 !important;
+}
+.textLayer > div {
+    color: rgba(0, 0, 0, 1) !important;
+}
