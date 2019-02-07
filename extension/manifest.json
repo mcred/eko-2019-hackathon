@@ -1,0 +1,14 @@
+{
+  "name": "Resume Masking",
+  "version": "1.0",
+  "description": "Resume masking",
+  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "content_scripts": [
+    {
+      "matches": ["*://cdn.lever.co/*"],
+      "all_frames": true,
+      "js": ["content.js"]
+    }
+  ],
+  "manifest_version": 2
+}
