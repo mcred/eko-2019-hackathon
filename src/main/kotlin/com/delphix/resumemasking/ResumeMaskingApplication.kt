@@ -9,4 +9,3 @@ class ResumeMaskingApplication
 fun main(args: Array<String>) {
 	runApplication<ResumeMaskingApplication>(*args)
 }
-
