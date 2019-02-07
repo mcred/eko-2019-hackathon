@@ -9,7 +9,7 @@
       "matches": ["*://cdn.lever.co/*"],
       "js": ["jquery-3.3.1.min.js", "content.js"],
       "css": ["css/altered.css"],
-      "run_at": "document_end"
+      "run_at": "document_idle"
     }
   ],
   "manifest_version": 2

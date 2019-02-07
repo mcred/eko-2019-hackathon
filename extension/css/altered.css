@@ -1,3 +1,6 @@
+body {
+    visibility: hidden;
+}
 div.canvasWrapper {
     display: none;
 }
