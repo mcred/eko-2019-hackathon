@@ -5,9 +5,9 @@
   "permissions": ["activeTab", "declarativeContent", "storage"],
   "content_scripts": [
     {
-      "matches": ["*://cdn.lever.co/*"],
-      "all_frames": true,
-      "js": ["content.js"]
+      "matches": ["https://hire.lever.co/candidates?isArchived=true"],
+      "run_at": "document_end",
+      "js": ["content.js", "jquery-3.3.1.min.js"]
     }
   ],
   "manifest_version": 2
