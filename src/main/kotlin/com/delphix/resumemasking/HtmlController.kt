@@ -7,37 +7,32 @@ import org.springframework.http.*
 import org.springframework.web.bind.annotation.*
 import com.delphix.playground.masking.Masker
 import com.delphix.playground.masking.record.JsonRecord
+import java.net.URLDecoder
 
 @RestController
 class HtmlController {
 
-  @GetMapping("/")
+  @PostMapping("/")
   fun mask(@RequestBody body: String): String {
-
-    val profile: String = """operations:
+    val profile: String = """key: agi5anb;q48vjzt85ijalasi48gnfaap83p98hq1
+operations:
   - select:
-      name: "records[*].firstName"
+      name: "request[*].*"
     transform:
-      method: name/english/first
+      method: name/english/firstOrFull
   - select:
       name: "$..lastName"
     transform:
       method: name/english/last
   - select:
-      name: "records[?(@.age > 50)].plan"
+      name: "request[?(@.age > 50)].plan"
     transform:
       method: generate/regex
       options:
         expression: XXX-A
-  - select:
-      name: "records[?(@.age <= 50)].plan"
-    transform:
-      method: generate/regex
-      options:
-        expression: YYY-D
     """
 
-    val json : JsonRecord =  JsonRecord(body)
+    val json : JsonRecord =  JsonRecord(URLDecoder.decode(body, "UTF-8"))
     var masker = Masker()
 
     masker.startJob()
