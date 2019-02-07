@@ -1,7 +1,15 @@
 setTimeout(function () {
 
+	var request = [];
+	var i = 0;
+
 	$(".candidate-name-link").each(function(){
-	    console.log($(this).attr("href"));
+	    var entry = {}
+	    console.log($(this).text() + ": " + $(this).attr("href"));
+
+	    entry[i] = $(this).text();
+	    request.push(entry);
+	    i++;
 
 	    $(this).click(function(){
 		 $.get($(this).attr("href"), function(data) {
@@ -16,4 +24,17 @@ setTimeout(function () {
 
 	});
 
-}, 2000);
+	$.ajax({type: "POST", url: "http://localhost:8080", data: JSON.stringify({ request }), dataType: 'json', success: function (data) {
+                var i = 0;
+		$(".candidate-name-link").each(function(){
+                    $(this).text(data.request[i][i]);
+                    i++;
+                });
+            }
+        });
+
+	$(".org-name").each(function(){
+	    $(this).text("Some Employer");
+	});
+
+}, 1000);
